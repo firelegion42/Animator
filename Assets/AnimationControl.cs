@@ -1,16 +1,19 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class AnimationControl : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private float scaleFactor;
+
+    private Vector3 currentScale;
+
+    private void Start()
     {
-        
+        currentScale = transform.localScale;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Shrink()
     {
-        
+        transform.DOScale(transform.localScale * scaleFactor, 1.5f);
     }
 }
